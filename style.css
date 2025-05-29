@@ -21,6 +21,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    position: relative; /* 为鼓励消息定位添加 */
 }
 
 /* 标题和座右铭样式 */
@@ -105,6 +106,31 @@ footer {
     text-align: center;
 }
 
+/* 鼓励消息样式 */
+.motivation-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(231, 76, 60, 0.9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    animation: fadeInOut 2s ease-in-out;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    30% { transform: translate(-50%, -50%) scale(1); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}
+
 /* 响应式设计 */
 @media (max-width: 500px) {
     .game-container {
@@ -120,5 +146,10 @@ footer {
         width: 40px;
         height: 40px;
         font-size: 1.2em;
+    }
+    
+    .motivation-message {
+        font-size: 1em;
+        padding: 10px 15px;
     }
 }
